@@ -9,13 +9,13 @@
 ##############################################################
 ### Définition des variables globales
 
-@hostname = http://sovrinstaging-agent-admin.apps.exp.lab.pocquebec.org
+@hostname = http://bcovrintest-agent-admin.apps.exp.lab.pocquebec.org
 
 ####
 #### Get list de connections 
 #### 
 GET {{hostname}}/connections HTTP/1.1
-X-API-Key: cqen-api-test
+X-API-Key: secret
 Content-Type: application/json
 
 ####

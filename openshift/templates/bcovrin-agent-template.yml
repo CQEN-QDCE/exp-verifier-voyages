@@ -442,12 +442,12 @@ parameters:
   displayName: Genesis file URL
   description: The URL from which the genesis file can be downloaded.
   required: true
-  value: http://test.bcovrin.vonx.io
+  value: http://test.bcovrin.vonx.io/genesis
 - name: LOG_LEVEL
   displayName: Log Level
   description: The logging level of the agent.
   required: true
-  value: WARNING
+  value: DEBUG
 - name: POSTGRESQL_KMS_HOST
   displayName: PostgreSql key management service hostname
   required: true
@@ -482,12 +482,11 @@ parameters:
 - name: AGENT_DID_SEED
   displayName: Agent DID seed.
   description: Seed used to create the agent DID.
-  required: true
+  required: false
 - name: AGENT_DID
   displayName: Agent DID
   description: The public DID associated to the agent.
   required: false
-  value: "8WDp23WFnJPUDjd77khhAG"
 - name: ADMIN_API_KEY
   displayName: Agent admin API key
   description: The key used to authenticate client requests to the admin api.
@@ -507,17 +506,7 @@ parameters:
   displayName: Agent name
   description: The name of the agent.
   required: true
-  value: "verifier-voyages"
-- name: IDENTITY_SCHEMA_ID
-  displayName: Identity schema id
-  description: The id of the identity schema.
-  required: true
-  value: "Ep31SvFAetugFPe5CGzJxt:2:IQNIDENTITE:0.1.7"
-- name: IDENTITY_CREDENTIAL_DEFINITION
-  displayName: Credential definition identity
-  description: The crdential definition of the identity.
-  required: true
-  value: "Ep31SvFAetugFPe5CGzJxt:3:CL:1731:Identite-IQN"
+  value: "AIR-Voyages"
 - name: AGENT_ENDPOINT
   displayName: Agent endpoint
   description: The endpoint of the agent.
