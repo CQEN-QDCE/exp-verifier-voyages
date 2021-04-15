@@ -156,23 +156,23 @@ objects:
         dnsPolicy: ClusterFirst
   status: {}
 
-#sovrinstaging-agent
+#bcovrintest-agent
 - kind: ImageStream
   apiVersion: v1
   metadata:
-    name: sovrinstaging-agent
+    name: bcovrintest-agent
 - kind: BuildConfig
   apiVersion: v1
   metadata:
     labels:
-      app: sovrinstaging-agent
-    name: sovrinstaging-agent
+      app: bcovrintest-agent
+    name: bcovrintest-agent
   spec:
     nodeSelector: null
     output:
       to:
         kind: ImageStreamTag
-        name: 'sovrinstaging-agent:latest'
+        name: 'bcovrintest-agent:latest'
     resources: {}
     successfulBuildsHistoryLimit: 5
     failedBuildsHistoryLimit: 5
@@ -182,7 +182,7 @@ objects:
         dockerfilePath: Dockerfile
     postCommit: {}
     source:
-      contextDir: sovrinstaging-agent
+      contextDir: bcovrintest-agent
       type: Git
       git:
         uri: 'https://github.com/CQEN-QDCE/exp-verifier-voyages.git'
@@ -192,9 +192,9 @@ objects:
 - kind: DeploymentConfig
   apiVersion: v1
   metadata:
-    name: sovrinstaging-agent
+    name: bcovrintest-agent
     labels:
-      app: sovrinstaging-agent
+      app: bcovrintest-agent
       app.kubernetes.io/part-of: ARIES
   spec:
     strategy:
@@ -213,22 +213,22 @@ objects:
         imageChangeParams:
           automatic: true
           containerNames:
-            - sovrinstaging-agent
+            - bcovrintest-agent
           from:
             kind: ImageStreamTag
-            name: 'sovrinstaging-agent:latest'
+            name: 'bcovrintest-agent:latest'
     replicas: 1
     revisionHistoryLimit: 10
     test: false
     selector:
-      app: sovrinstaging-agent
+      app: bcovrintest-agent
     template:
       metadata:
         labels:
-          app: sovrinstaging-agent
+          app: bcovrintest-agent
       spec:
         containers:
-          - name: sovrinstaging-agent
+          - name: bcovrintest-agent
             command:
               - bash
               - -c
@@ -261,7 +261,7 @@ objects:
               - name: GENESIS_FILE_URL
                 value: ${GENESIS_FILE_URL}
               - name: KMS_NAME
-                value: sovrinstaging-agent
+                value: bcovrintest-agent
               - name: KMS_STORAGE_TYPE
                 value: ${KMS_STORAGE_TYPE}
               - name: KMS_STORAGE_CONFIGURATION
@@ -356,10 +356,10 @@ objects:
 - kind: Service
   apiVersion: v1
   metadata:
-    name: sovrinstaging-agent
+    name: bcovrintest-agent
   spec:
     selector:
-      app: sovrinstaging-agent
+      app: bcovrintest-agent
     ports:
       - name: '3000'
         protocol: TCP
@@ -372,19 +372,19 @@ objects:
 - kind: Route
   apiVersion: v1
   metadata:
-    name: sovrinstaging-agent
+    name: bcovrintest-agent
   spec:
-    host: sovrinstaging-agent.apps.exp.lab.pocquebec.org
+    host: bcovrintest-agent.apps.exp.lab.pocquebec.org
     to:
       kind: Service
-      name: sovrinstaging-agent
+      name: bcovrintest-agent
       weight: 100
     port:
       targetPort: 8000
     wildcardPolicy: None
   status:
     ingress:
-      - host: sovrinstaging-agent.apps.exp.lab.pocquebec.org
+      - host: bcovrintest-agent.apps.exp.lab.pocquebec.org
         routerName: default
         conditions:
           - type: Admitted
@@ -394,19 +394,19 @@ objects:
 - kind: Route
   apiVersion: v1
   metadata:
-    name: sovrinstaging-agent-admin
+    name: bcovrintest-agent-admin
   spec:
-    host: sovrinstaging-agent-admin.apps.exp.lab.pocquebec.org
+    host: bcovrintest-agent-admin.apps.exp.lab.pocquebec.org
     to:
       kind: Service
-      name: sovrinstaging-agent
+      name: bcovrintest-agent
       weight: 100
     port:
       targetPort: 3000
     wildcardPolicy: None
   status:
     ingress:
-      - host: sovrinstaging-agent-admin.apps.exp.lab.pocquebec.org
+      - host: bcovrintest-agent-admin.apps.exp.lab.pocquebec.org
         routerName: default
         conditions:
           - type: Admitted
@@ -522,9 +522,9 @@ parameters:
   displayName: Agent endpoint
   description: The endpoint of the agent.
   required: true
-  value: "http://sovrinstaging-agent.apps.exp.lab.pocquebec.org"
+  value: "http://bcovrintest-agent.apps.exp.lab.pocquebec.org"
 - name: AGENT_ADMIN_ENDPOINT
   displayName: Agent admin endpoint
   description: The endpoint of the agent.
   required: true
-  value: "http://sovrinstaging-agent-admin.apps.exp.lab.pocquebec.org"
+  value: "http://bcovrintest-agent-admin.apps.exp.lab.pocquebec.org"

@@ -9,7 +9,7 @@
 ##############################################################
 ### Définition des variables globales
 
-@hostname = http://aries-agent-admin.apps.exp.lab.pocquebec.org
+@hostname = http://sovrinstaging-agent-admin.apps.exp.lab.pocquebec.org
 
 ####
 #### Get list de connections 
