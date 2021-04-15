@@ -72,7 +72,7 @@ objects:
       template.alpha.openshift.io/wait-for-ready: 'true'
     labels:
       app: aries-kms
-      app.kubernetes.io/part-of: ARIES
+      app.kubernetes.io/part-of: BCovrinTest
   spec:
     strategy:
       type: Recreate
@@ -195,7 +195,7 @@ objects:
     name: bcovrintest-agent
     labels:
       app: bcovrintest-agent
-      app.kubernetes.io/part-of: ARIES
+      app.kubernetes.io/part-of: BCovrinTest
   spec:
     strategy:
       type: Rolling
@@ -507,7 +507,7 @@ parameters:
   displayName: Agent name
   description: The name of the agent.
   required: true
-  value: "Preuve-de-vaccination-canadienne"
+  value: "verifier-voyages"
 - name: IDENTITY_SCHEMA_ID
   displayName: Identity schema id
   description: The id of the identity schema.
