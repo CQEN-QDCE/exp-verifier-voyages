@@ -182,7 +182,7 @@ objects:
         dockerfilePath: Dockerfile
     postCommit: {}
     source:
-      contextDir: bcovrintest-agent
+      contextDir: voyages-agent
       type: Git
       git:
         uri: 'https://github.com/CQEN-QDCE/exp-verifier-voyages.git'
@@ -442,7 +442,7 @@ parameters:
   displayName: Genesis file URL
   description: The URL from which the genesis file can be downloaded.
   required: true
-  value: https://raw.githubusercontent.com/sovrin-foundation/sovrin/master/sovrin/pool_transactions_sandbox_genesis
+  value: http://test.bcovrin.vonx.io
 - name: LOG_LEVEL
   displayName: Log Level
   description: The logging level of the agent.
