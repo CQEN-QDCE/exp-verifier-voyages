@@ -10,6 +10,7 @@ import { useTranslation }  from 'react-i18next'
 const JumbotronComponent = () => {
   const history = useHistory();
   const { t } = useTranslation(['translation','vacine']);
+
   return (
     <header>
       <div className="pt-5 container-fluid text-center" >
@@ -46,7 +47,9 @@ const JumbotronComponent = () => {
           </div>
           <div class="col-md-4 col-sm-12">
             <img src={bannerImg} alt="CovidPerson" />
+
           </div>
+    
         </div>
       </div>
     </header>

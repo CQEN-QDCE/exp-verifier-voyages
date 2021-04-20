@@ -1,6 +1,4 @@
 /*
-* Copyright (c) 2020 Gouvernement du Québec
-* Auteur: Julio Cesar Torres (torj01)
 * SPDX-License-Identifier: LiLiQ-R-v.1.1
 * License-Filename: /LICENSE
 */
@@ -13,6 +11,7 @@ import Auth                           from '../helpers/Auth';
 import useWindowDimensions            from '../helpers/useWindowDimensions';
 import AppLogo                     from '../assets/images/airplane-logo.png';
 import LangueComponent  from './LangueComponent'
+
 
 const HeaderComponent = () => {
   const [isOpen, setIsOpen] = useState(false);

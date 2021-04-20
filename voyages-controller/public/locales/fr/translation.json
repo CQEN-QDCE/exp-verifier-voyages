@@ -1,12 +1,8 @@
 {
     "en": "English", 
-    "de": "Deutsch", 
     "fr": "Français", 
-    "pt": "Português",
     "en-s": "EN", 
-    "pt-s": "PT", 
     "fr-s": "FR",
-    "de-s": "DE",
     "copyright": "© 2021 AIR-SECUR. Tous les droits réservés.", 
     "welcomeMessage": "Ce site permet, par moyen des expérimentations, explorer les concepts techniques permettant de soutenir la relation détenteur-sujet d’une attestation, et évaluer des modèles permettant de soutenir la relation parent-enfant pour l’attestation d’identité gouvernementale. ",
     "btnLogin": "Essayer", 
