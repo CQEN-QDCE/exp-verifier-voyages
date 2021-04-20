@@ -1,6 +1,4 @@
 /*
-* Copyright (c) 2020 Gouvernement du Québec
-* Auteur: Julio Cesar Torres (torj01)
 * SPDX-License-Identifier: LiLiQ-R-v.1.1
 * License-Filename: /LICENSE
 */
@@ -12,9 +10,7 @@ import { useTranslation }             from 'react-i18next'
 import { globalStyles }               from '../assets/styles/globalStyles';
 import Auth                           from '../helpers/Auth';
 import useWindowDimensions            from '../helpers/useWindowDimensions';
-import QuebecLogo                     from '../assets/images/dec.png';
-import LoginIcon                      from '@material-ui/icons/AccountCircle';
-import LogoutIcon                     from '@material-ui/icons/ExitToApp';
+import Logo                           from '../assets/images/imagesAvionVoyage.png'
 
 const HeaderComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,31 +36,16 @@ const HeaderComponent = () => {
   };
 
   const handleClickLogo = () => {
-    window.location.href = "http://emetteur-dec-issuer.apps.exp.lab.pocquebec.org/";
+    window.location.href = "http://localhost:10000/";
   }
 
   return (
     <Navbar color="light" light expand="sm" fixed="top" style={globalStyles.navbar}>     
       <NavbarBrand className="navbar-brand oneliner">
-        <img src={QuebecLogo} alt="quebec-logo" onClick={handleClickLogo} style={globalStyles.navbarLogo} />
+        <img src={Logo} alt="quebec-logo" onClick={handleClickLogo} style={globalStyles.navbarLogo} />
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
-        <Nav navbar className="ml-auto">
-          {Auth.getAuth() ? (
-            <NavItem>
-                <Button startIcon={<LogoutIcon />} color="secondary" variant="contained" onClick={handleLogout} >
-                    {t('translation:btnLogout')}
-                </Button>
-            </NavItem>
-          ) : (
-              <NavItem>
-                 <Button startIcon={<LoginIcon />} color="primary" variant="contained" onClick={handleLogin} >
-                      {t('translation:btnLogin')}
-                  </Button> 
-              </NavItem>
-            )}
-        </Nav>
       </Collapse>
     </Navbar>
   );
