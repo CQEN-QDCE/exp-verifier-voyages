@@ -24,12 +24,12 @@ const JumbotronComponent = () => {
               let auth_login = Auth.getAuth();
               if (auth_login == null) {
                 localStorage.setItem('demo', "PIA");
-                history.push('/login')
+                history.push('/bookForm')
               }
               else {
                 localStorage.setItem('demo', "PIA");
                 VaccinationStatus.isVaccinated(false)
-                history.push('/bookticket')
+                history.push('/bookForm')
               }
             }}>{t('vacine:tryOnBookingButtonLabel')}</Button>
 
