@@ -13,9 +13,8 @@ function FooterComponent() {
 	const { t } = useTranslation();
 
 	return (
-		<Container fluid className="fixed-bottom text-center p-3 border-top" style={{ backgroundColor: '#fff' }}>
+		<Container fluid className="fixed-bottom text-center p-3 border-top" style={{ backgroundColor: '#11172b', color: '#fff' }}>
 			{t('translation:copyright')}
-			<LangueComponent />
 		</Container>
 	)
 }

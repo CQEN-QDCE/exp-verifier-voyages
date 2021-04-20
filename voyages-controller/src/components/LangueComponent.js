@@ -2,32 +2,58 @@
 * SPDX-License-Identifier: LiLiQ-R-v.1.1
 * License-Filename: /LICENSE
 */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import enflag              from '../assets/images/icon/UK.png'
-import brFlag              from '../assets/images/icon/BR.png'
-import frFlag              from '../assets/images/icon/FR.png'
+import { FormGroup, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 import '../assets/styles/Social.css'
 import '../assets/styles/ProofContainer.css'
 
-function LangueComponent(){
+const LangueComponent = () => {
     
+    const { t } = useTranslation(['translation','identite']);
+
     const { i18n } = useTranslation(); 
 
-    const changeLanguage = code => {
-	  	i18n.changeLanguage(code);
-    };
+    const [languageChoice, setLanguageChoice] = useState('');
+ 
+    const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+ 
+    const languageToggle = () => setLanguageDropdownOpen( !languageDropdownOpen);
     
-    return(
-        <div className="lang">
-            
-                <img src={enflag} onClick={() => changeLanguage('en')} alt="en" width="40" height="40" />  
-           
-                { /* <img src={brFlag} onClick={() => changeLanguage('pt')} alt="pt" width="40" height="40" /> */}
-           
-                <img src={frFlag} onClick={() => changeLanguage('fr')} alt="fr" width="40" height="40" /> 
-           
+    useEffect(() => {
+        var userLanguage = navigator.language || navigator.userLanguage;
+        if (userLanguage === 'fr-CA') {
+            setLanguageChoice(t('translation:fr'));
+        } else {
+            setLanguageChoice(t('translation:en'));
+        }
+    });
+
+    function changeLanguage(e) {
+        let selection = e.target.innerText; 
+        setLanguageChoice(selection)
+        if (selection === t('translation:fr')) {
+            i18n.changeLanguage('fr');
+        } else {
+            i18n.changeLanguage('en');
+        }
+    }
+
+    return (
+        <div>
+            <FormGroup>
+                <Dropdown isOpen={languageDropdownOpen} toggle={languageToggle}>
+                    <DropdownToggle caret color="#707482" className="inputField rounded-pill" style={{backgroundColor: '#707482', color: '#ffffff'}}>
+                        {languageChoice}
+                    </DropdownToggle>
+                    <DropdownMenu value={languageChoice} name="languageChoice">
+                        <DropdownItem name="self"   onClick={ changeLanguage }>{t('translation:fr')}</DropdownItem>
+                        <DropdownItem name="child"  onClick={ changeLanguage }>{t('translation:en')}</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+            </FormGroup>
         </div>
-    ); 
-        
-} export default LangueComponent;
+    );
+};
+
+export default LangueComponent;
