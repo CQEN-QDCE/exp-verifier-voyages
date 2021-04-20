@@ -1,3 +1,5 @@
+import { rgbToHex } from "@material-ui/core";
+
 export const globalStyles = {
     buttonContainer: {
         backgroundColor:"black"
@@ -7,7 +9,8 @@ export const globalStyles = {
         height: 400,
     },
     navbar: {
-        boxShadow: '0 0px 50px rgba(0, 0, 0, 0.2)',
+        /*boxShadow: '0 0px 50px rgba(0, 0, 0, 0.2)',*/
+        backgroundColor: '#11172b',
         position: 'sticky',
         top: 0,
     },

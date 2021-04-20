@@ -1,7 +1,7 @@
 {
-    "travelCarefreeTitle": "Voyagez sans souci avec les preuves vaccinales",
+    "travelCarefreeTitle": "Voyagez sans souci avec vos preuves vaccinales",
     "travelCarefreeSubTitle": "Les preuves vaccinales sont fiables et faciles à établir.",
     "travelCarefreeDescription": "Cette démo montre comment une institution peut vérifier les preuves vaccinales d'une personne, en ligne ou en face à face.",
-    "tryOnLocationButtonLabel": "Try On Location Demo",
-    "tryOnBookingButtonLabel": "Try Online Booking Demo"
+    "tryOnLocationButtonLabel": "Démo en face à face",
+    "tryOnBookingButtonLabel": "Démo en ligne"
 }
