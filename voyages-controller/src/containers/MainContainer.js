@@ -5,13 +5,14 @@
 import React               from 'react';
 import { Container }       from 'reactstrap';
 import JumbotronComponent  from '../components/JumbotronComponent';
+import '../assets/styles/bootstrap-overrides.css';
+import '../assets/styles/Container.css';
 
 function MainContainer() {
 	return (
-
 		< Container fluid style={{ backgroundColor: '#FFF' }}>
-			<JumbotronComponent />
-		</Container >
+			<JumbotronComponent/>
+		</Container>
 	);
 }
 

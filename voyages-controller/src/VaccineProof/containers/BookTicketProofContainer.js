@@ -10,7 +10,7 @@ import '../../assets/styles/LoginContainer.css'
 function BookTicketProofContainer(props) {
 
 	return (
-		<div className="Root" style={{ backgroundColor: '#FCF8F7', display: "flex" }}>
+		<div className="Root Container">
 			<Container >
 				<BookTicketProofForm  data={props.location.state} className="justify-content-center"  />
 			</Container>

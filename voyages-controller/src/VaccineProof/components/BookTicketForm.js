@@ -82,8 +82,8 @@ const BookTicketForm = () => {
             <br />
             <Row form>
                 <Col md={5}>
-                    <Dropdown isOpen={fromdropdownOpen} toggle={fromtoggle} size="lg" color="success">
-                        <DropdownToggle caret color="success" >
+                    <Dropdown isOpen={fromdropdownOpen} toggle={fromtoggle} size="lg" color="primary">
+                        <DropdownToggle caret color="primary" >
                             {from}
                         </DropdownToggle>
                         <DropdownMenu value={from} name="fromLocations" >
@@ -100,7 +100,7 @@ const BookTicketForm = () => {
                 </Col>
                 <Col md={5}>
                     <Dropdown isOpen={todropdownOpen} toggle={totoggle} size="lg">
-                        <DropdownToggle caret color="success">
+                        <DropdownToggle caret color="primary">
                             {to}
                         </DropdownToggle>
                         <DropdownMenu value={to} name="toLocations" >
@@ -159,7 +159,7 @@ const BookTicketForm = () => {
                 </Col>
             </Row>
             
-                <Button onClick={handleSubmit} outline color="success" className="m-3">{t('vaccine:btnNext')}</Button>
+                <Button onClick={handleSubmit} color="secondary" className="m-3">{t('vaccine:btnNext')}</Button>
             
         </Form>
     ); 
