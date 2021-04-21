@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 import Auth from '../helpers/Auth';
 import { useHistory } from 'react-router-dom';
 import VaccinationStatus from '../helpers/VaccinationStatus';
-import bannerImg from '../assets/images/banner-img-1.png'
+import bannerImg from '../assets/images/banner-img-1.png';
 import '../assets/styles/JumbotronComponent.css';
 import { useTranslation }  from 'react-i18next'
 
@@ -20,7 +20,7 @@ const JumbotronComponent = () => {
             <p>{t('vacine:travelCarefreeSubTitle')}</p>
             <p className="lead">
             {t('vacine:travelCarefreeDescription')}</p>
-            <Button className="mt-5" size="lg" color="#42a5b2" style={{ 'background-color': '#42a5b2', 'color': '#ffffff' }} onClick={() => {
+            <Button className="mt-5" size="lg" color="primary" onClick={() => {
               let auth_login = Auth.getAuth();
               if (auth_login == null) {
                 localStorage.setItem('demo', "PIA");
@@ -33,7 +33,7 @@ const JumbotronComponent = () => {
               }
             }}>{t('vacine:tryOnBookingButtonLabel')}</Button>
 
-            <Button className="mt-5 ml-3" color="#e51937" size="lg" style={{ 'background-color': '#e51937', 'color': '#ffffff' }} onClick={() => {
+            <Button className="mt-5 ml-3" color="primary" size="lg" onClick={() => {
               let auth_login = Auth.getAuth();
               if (auth_login == null) {
                 localStorage.setItem('demo', "CAA");
