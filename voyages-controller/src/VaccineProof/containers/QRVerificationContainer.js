@@ -7,7 +7,7 @@ import { Container, Button, Col, Spinner }  from 'reactstrap'
 import { useTranslation } 					from 'react-i18next' 
 import QRPreuveComponent                    from '../components/QRPreuveComponent'
 import { GET_API_SECRET }                   from '../../config/constants'
-import { GET_CRED_ID } 						from '../../config/constants'
+import { GET_CRED_DEF_ID } 					from '../../config/constants'
 import { fetchWithTimeout }                 from '../../helpers/fetchWithTimeout'
 import                                           '../../assets/styles/LoginContainer.css'
 
@@ -24,11 +24,11 @@ function QRVerificationContainer(props){
     const [showAuthButton, setAuthButton]  = useState(false);
 	const [showLoader, setLoader]          = useState(false)
 
-	let cred_def_id = 'MRKu4v1ECzY2vfsKZp9MMU:3:CL:123821:test'; 
+	//let cred_def_id = GET_CRED_DEF_ID();
+	let cred_def_id = "GECw2XkHi2hVXVafihZSyB:3:CL:124315:test";
+	console.log("GET_CRED_DEF_ID:" + GET_CRED_DEF_ID())
 
     useEffect(() => {
-        //cred_def_id = process.env.REACT_APP_CRED_DEF_VACCINE;
-		//cred_def_id = '93sgLV7ev5PDWuP49xqiXC:3:CL:123709:test'
         getConnectionInfo()
     }, []);
 

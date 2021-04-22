@@ -58,7 +58,8 @@ function BookTicketProofForm(props) {
         <hr />
         <FormGroup row>
             <Label for="from" sm={3}>
-            {t('vaccine:from')}
+            Québec    - Jean Lesage Intl. (YQB)
+            {/*t('vaccine:from')*/}
             </Label>
             <Col sm={10}>
                 <Input type="text" name="from" id="from" value={from} disabled />
@@ -67,7 +68,8 @@ function BookTicketProofForm(props) {
 
         <FormGroup row>
             <Label for="to" sm={3}>
-            {t('vaccine:to')}
+            Vancouver - Vancouver Intl. (YVR)
+            {/*t('vaccine:to')*/}
             </Label>
             <Col sm={10}>
                 <Input type="text" name="to" id="to" value={to} disabled />
@@ -222,7 +224,8 @@ function BookTicketProofForm(props) {
           <Input type="text" name="vaccine_medicinalProductName" id="vaccine_medicinalProductName" value={vaccine_medicinalProductName} disabled />
         </Col>
       </FormGroup> 
-      <br />
+      <br />&nbps;<br />
+      <hr />
     </Col>
     );
 }

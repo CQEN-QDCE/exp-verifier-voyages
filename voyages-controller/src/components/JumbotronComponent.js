@@ -1,3 +1,7 @@
+/*
+* SPDX-License-Identifier: LiLiQ-R-v.1.1
+* License-Filename: /LICENSE
+*/
 import React from 'react';
 import { Button } from 'reactstrap';
 import Auth from '../helpers/Auth';
@@ -9,17 +13,17 @@ import { useTranslation }  from 'react-i18next'
 
 const JumbotronComponent = () => {
   const history = useHistory();
-  const { t } = useTranslation(['translation','vacine']);
+  const { t } = useTranslation(['translation','vaccine']);
 
   return (
     <header>
       <div className="pt-5 container-fluid text-center" >
         <div className="row" >
           <div className="col-md-7 col-sm-12" style={{ 'paddingTop': '0' }}>
-            <h1 className="mt-5">{t('vacine:travelCarefreeTitle')}</h1>
-            <p>{t('vacine:travelCarefreeSubTitle')}</p>
+            <h1 className="mt-5">{t('vaccine:travelCarefreeTitle')}</h1>
+            <p>{t('vaccine:travelCarefreeSubTitle')}</p>
             <p className="lead">
-            {t('vacine:travelCarefreeDescription')}</p>
+            {t('vaccine:travelCarefreeDescription')}</p>
             <Button className="mt-5" size="lg" color="primary" onClick={() => {
               let auth_login = Auth.getAuth();
               if (auth_login == null) {
@@ -31,7 +35,7 @@ const JumbotronComponent = () => {
                 VaccinationStatus.isVaccinated(false)
                 history.push('/bookForm')
               }
-            }}>{t('vacine:tryOnBookingButtonLabel')}</Button>
+            }}>{t('vaccine:tryOnBookingButtonLabel')}</Button>
 
             <Button className="mt-5 ml-3" color="primary" size="lg" onClick={() => {
               let auth_login = Auth.getAuth();
@@ -43,13 +47,11 @@ const JumbotronComponent = () => {
                 localStorage.setItem('demo', "CAA");
                 history.push('/onlocation')
               }
-            }}>{t('vacine:tryOnLocationButtonLabel')}</Button>
+            }}>{t('vaccine:tryOnLocationButtonLabel')}</Button>
           </div>
           <div class="col-md-4 col-sm-12">
             <img src={bannerImg} alt="CovidPerson" />
-
           </div>
-    
         </div>
       </div>
     </header>

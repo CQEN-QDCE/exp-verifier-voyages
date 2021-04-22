@@ -4,21 +4,17 @@
 */
 import React, { useState, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
-import { useHistory, useLocation }    from 'react-router-dom';
+import { useLocation }                from 'react-router-dom';
 import { useTranslation }             from 'react-i18next'
 import { globalStyles }               from '../assets/styles/globalStyles';
 import Auth                           from '../helpers/Auth';
-import useWindowDimensions            from '../helpers/useWindowDimensions';
 import AppLogo                     from '../assets/images/airplane-logo.png';
 import LangueComponent  from './LangueComponent'
 
 
 const HeaderComponent = () => {
+  
   const [isOpen, setIsOpen] = useState(false);
-
-  const { height, width } = useWindowDimensions();
-
-  const history = useHistory();
   
   const location = useLocation();
   
