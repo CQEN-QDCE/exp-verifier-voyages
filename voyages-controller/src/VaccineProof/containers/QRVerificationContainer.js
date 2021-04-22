@@ -7,33 +7,27 @@ import { Container, Button, Col, Spinner }  from 'reactstrap'
 import { useTranslation } 					from 'react-i18next' 
 import QRPreuveComponent                    from '../components/QRPreuveComponent'
 import { GET_API_SECRET }                   from '../../config/constants'
-import { GET_CRED_ID } 						from '../../config/constants'
+import { GET_CRED_DEF_ID } 					from '../../config/constants'
 import { fetchWithTimeout }                 from '../../helpers/fetchWithTimeout'
 import                                           '../../assets/styles/LoginContainer.css'
 
 
 function QRVerificationContainer(props){
 
-	console.log("function QRVerificationContainer()")
-	console.log(props.location.state);
-	console.log("Cabin: " + props.location.state.ticket.cabin);
 	const { t } = useTranslation(['translation', 'vaccine']); 
-	let INTERVAL = 5000; 
-	let TIMEOUT  = 3000; 
+	const [showAuthButton, setAuthButton]  = useState(false);
+	const [showLoader, setLoader]          = useState(false);
 
-    const [showAuthButton, setAuthButton]  = useState(false);
-	const [showLoader, setLoader]          = useState(false)
-
-	let cred_def_id = 'MRKu4v1ECzY2vfsKZp9MMU:3:CL:123821:test'; 
+	let INTERVAL    = 5000; 
+	let TIMEOUT     = 3000; 
+	let cred_def_id = GET_CRED_DEF_ID();
 
     useEffect(() => {
-        //cred_def_id = process.env.REACT_APP_CRED_DEF_VACCINE;
-		//cred_def_id = '93sgLV7ev5PDWuP49xqiXC:3:CL:123709:test'
         getConnectionInfo()
     }, []);
 
     function getConnectionInfo() {
-		console.log("function getConnectionInfo()")
+	
 		try {
 			fetchWithTimeout(`/connections/${props.location.state.invitation.connection_id}`,
 				{
@@ -66,16 +60,12 @@ function QRVerificationContainer(props){
     }
     
     function clearIntervalFunction(intervalFunction) {
-		console.log("function clearIntervalFunction(intervalFunction)")
 		clearInterval(intervalFunction);
 		setAuthButton(true);
     }
     
 
     function requestProof(){
-		console.log("function requestProof()")
-		console.log("Connection ID : " + props.location.state.invitation.connection_id); 
-		console.log("CRED_DEF: " + cred_def_id); 
 		
 		fetch(`/present-proof/send-request`, 
 			{
@@ -201,7 +191,7 @@ function QRVerificationContainer(props){
 						props.history.push('/proofResult', {
 							presentation_exchange_id: data.presentation_exchange_id,
 							connection_id           : props.location.state.invitation.connection_id,
-							ticketfrom              : props.location.state.ticket.from, 
+							ticketFrom              : props.location.state.ticket.from, 
 							ticketTo                : props.location.state.ticket.to,
 							ticketDeparture			: props.location.state.ticket.departureDate,
 							ticketReturn			: props.location.state.ticket.returnDate,
@@ -213,7 +203,6 @@ function QRVerificationContainer(props){
 	}
 
 	const handleAuthorisation = () => {
-		console.log("const handleAuthorisation = ()")
 		setLoader(true);
 		requestProof(); 
     }

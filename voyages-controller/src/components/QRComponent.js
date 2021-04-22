@@ -6,7 +6,9 @@ import React from 'react';
 import QRCode from 'qrcode.react'
 
 function QRComponent(props) {
+	
 	const content = JSON.parse(props.value); 
+
 	console.log(content.invitation.invitation_url)
 	
 	return (

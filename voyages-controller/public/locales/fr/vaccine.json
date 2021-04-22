@@ -39,5 +39,10 @@
     "vaccine_message" : "", 
     "vaccineProof" : "Validation de la Preuve Vaccinale", 
     "vaccineQRMsg" : "Merci de balayer ce QRCode pour valider votre attestation de preuve vaccinale",
-    "btnVaccineQR": "Valider preuve vaccinale"
+    "btnVaccineQR": "Valider preuve vaccinale", 
+    "travelCarefreeTitle": "Voyagez sans souci avec vos preuves vaccinales",
+    "travelCarefreeSubTitle": "Les preuves vaccinales sont fiables et faciles à établir.",
+    "travelCarefreeDescription": "Cette démo montre comment une institution peut vérifier les preuves vaccinales d'une personne, en ligne ou en face à face.",
+    "tryOnLocationButtonLabel": "Démo en face à face",
+    "tryOnBookingButtonLabel": "Démo en ligne"
 }

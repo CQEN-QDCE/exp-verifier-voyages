@@ -5,8 +5,6 @@
 import React from 'react'
 import { Container } from 'reactstrap'
 import { useTranslation } from 'react-i18next'
-import LangueComponent  from './LangueComponent'
-
 
 function FooterComponent() {
 

@@ -39,5 +39,10 @@
     "vaccine_message" : "", 
     "vaccineProof" : "Vaccination Proof Validation", 
     "vaccineQRMsg" : "Please scan this QR code to validate your vaccination proof", 
-    "btnVaccineQR": "Validate vaccination proof"
+    "btnVaccineQR": "Validate vaccination proof", 
+    "travelCarefreeTitle": "Travel Carefree with Vaccination Certificates!",
+    "travelCarefreeSubTitle": "Vaccination certificates made reliable and easy.",
+    "travelCarefreeDescription": "This demo shows how an institution can verify a digital immunity certificates of a person either online or face-2-face.",
+    "tryOnLocationButtonLabel": "Try On Location Demo",
+    "tryOnBookingButtonLabel": "Try Online Booking Demo"
 }

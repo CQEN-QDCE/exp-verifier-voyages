@@ -11,17 +11,6 @@ import                                      '../../assets/styles/Forms.css';
 
 function ProofVerificationContainer(props) {
 
-    console.log("============================================function ProofVerificationContainer()========================================");
-    /*console.log("Props location state: " + props.location.state);
-	console.log("Cabin: " + props.location.state.ticket.cabin);*/
-    console.log("Props location exchangeid: " + props.location.state.presentation_exchange_id);
-    console.log("Props location connection id : " + props.location.state.connection_id)
-    console.log("Props location ticket to :" + props.location.state.ticketTo);
-    console.log("Props location ticket from  :" + props.location.state.ticketFrom);
-    console.log("Props location ticket departure  :" + props.location.state.ticketDeparture);
-    console.log("Props location ticket return  :" + props.location.state.ticketReturn);
-    console.log("Props location ticket Passenger  :" + props.location.state.ticketPassenger);
-    console.log("Props location ticket Cabin  :" + props.location.state.ticketCabin);
     let INTERVAL = 5000; 
     let TIMEOUT  = 3000; 
 
@@ -84,10 +73,9 @@ function ProofVerificationContainer(props) {
 		).then(response => response.json())
          .then(data => {
 
-            console.log("%%% data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName %%% " + data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName.raw);
             props.history.push('/proofDisplay', {
                 connection_id                           : props.location.state.connection_id,
-                //ticketfrom                              : props.location.state.ticket.from, 
+                ticketFrom                              : props.location.state.ticketFrom, 
 				ticketTo                                : props.location.state.ticketTo,
 				ticketDeparture	                		: props.location.state.ticketDeparture,
 				ticketReturn	                		: props.location.state.ticketReturn,
