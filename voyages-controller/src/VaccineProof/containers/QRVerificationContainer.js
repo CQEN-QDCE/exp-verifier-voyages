@@ -191,7 +191,7 @@ function QRVerificationContainer(props){
 						props.history.push('/proofResult', {
 							presentation_exchange_id: data.presentation_exchange_id,
 							connection_id           : props.location.state.invitation.connection_id,
-							ticketfrom              : props.location.state.ticket.from, 
+							ticketFrom              : props.location.state.ticket.from, 
 							ticketTo                : props.location.state.ticket.to,
 							ticketDeparture			: props.location.state.ticket.departureDate,
 							ticketReturn			: props.location.state.ticket.returnDate,

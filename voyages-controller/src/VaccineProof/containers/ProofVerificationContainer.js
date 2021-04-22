@@ -75,7 +75,7 @@ function ProofVerificationContainer(props) {
 
             props.history.push('/proofDisplay', {
                 connection_id                           : props.location.state.connection_id,
-                ticketfrom                              : props.location.state.ticketFrom, 
+                ticketFrom                              : props.location.state.ticketFrom, 
 				ticketTo                                : props.location.state.ticketTo,
 				ticketDeparture	                		: props.location.state.ticketDeparture,
 				ticketReturn	                		: props.location.state.ticketReturn,
