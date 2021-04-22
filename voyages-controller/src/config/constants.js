@@ -21,7 +21,7 @@ export function GET_SCHEMA_ID() {
 }
 
 export function GET_CRED_DEF_ID() {
-    let CRED_ID = process.env.REACT_APP_CRED_ID;
+    let CRED_ID = process.env.REACT_APP_CRED_DEF_VACCINE;
     if (CRED_ID === undefined || CRED_ID === '')
         return 'NONE'
     else
