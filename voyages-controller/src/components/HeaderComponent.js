@@ -29,8 +29,8 @@ const HeaderComponent = () => {
   return (
     <Navbar expand="sm" fixed="top" style={globalStyles.navbar}>     
       <NavbarBrand className="navbar-brand oneliner">
-        <img src={AppLogo} alt="air-secur-logo" style={globalStyles.navbarLogoMini} />
-        <span style={{ color: '#fff', 'margin-left': '10px' }}>AIR-SECUR</span>
+        <a href="http://localhost:10000/"><img src={AppLogo} alt="air-secur-logo" style={globalStyles.navbarLogoMini} />
+        <span style={{ color: '#fff', 'margin-left': '10px' }}>AIR-SECUR</span></a>
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
