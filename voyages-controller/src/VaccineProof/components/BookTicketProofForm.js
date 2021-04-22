@@ -9,22 +9,6 @@ import { useTranslation } from 'react-i18next'
 
 function BookTicketProofForm(props) {
 
-  console.log('***************************************************')
-  console.log('BookTicketProofForm')
-  console.log('***************************************************')
-  console.log("Connection ID: " + props.data.connection_id);
-  //console.log("Props data: " + props.location.state.data.ticketTo);
-  /*console.log("Props location exchangeid: " + props.location.state.presentation_exchange_id);
-  console.log("Props location connection id : " + props.location.state.connection_id)
-  console.log("Props location ticket to :" + props.location.state.ticketTo);
-  console.log("Props location ticket from  :" + props.location.state.ticketFrom);
-  console.log("Props location ticket departure  :" + props.location.state.ticketDeparture);
-  console.log("Props location ticket return  :" + props.location.state.ticketReturn);
-  console.log("Props location ticket Passenger  :" + props.location.state.ticketPassenger);
-  console.log("Props location ticket Cabin  :" + props.location.state.ticketCabin);
-  console.log("Props data: " + props.location.state.data);
-  */
-
     const [vaccine_medicinalProductName, setvaccine_medicinalProductName] = useState(props.data.vaccine_medicinalProductName)
     const [countryOfVaccination, setCountryOfVaccination] = useState(props.data.countryOfVaccination); 
     const [recipient_birthDate, setrecipient_birthDate] = useState(props.data.recipient_birthDate);
@@ -37,11 +21,9 @@ function BookTicketProofForm(props) {
     const [vaccine_marketingAuthorizationHolder, setvaccine_marketingAuthorizationHolder] = useState(props.data.vaccine_marketingAuthorizationHolder); 
     const [vaccine_dateOfVaccination, setvaccine_dateOfVaccination] = useState(props.data.vaccine_dateOfVaccination); 
     const [vaccine_disease, setvaccine_disease] = useState(props.data.vaccine_disease); 
-    const [name, setName] = useState(props.data.name);
 
-
-    const [from, setFrom] = useState(props.data.ticketTo); 
-    const [to, setTo] = useState(''); 
+    const [from, setFrom] = useState(props.data.ticketFrom); 
+    const [to, setTo] = useState(props.data.ticketTo); 
     const [departureDate, setDepartureDate] = useState(props.data.ticketDeparture); 
     const [returnDate, setReturnDate] = useState(props.data.ticketReturn); 
     const [passenger, setPassenger] = useState([props.data.ticketPassenger]); 
@@ -58,8 +40,7 @@ function BookTicketProofForm(props) {
         <hr />
         <FormGroup row>
             <Label for="from" sm={3}>
-            Québec    - Jean Lesage Intl. (YQB)
-            {/*t('vaccine:from')*/}
+            {t('vaccine:from')}
             </Label>
             <Col sm={10}>
                 <Input type="text" name="from" id="from" value={from} disabled />
@@ -68,8 +49,7 @@ function BookTicketProofForm(props) {
 
         <FormGroup row>
             <Label for="to" sm={3}>
-            Vancouver - Vancouver Intl. (YVR)
-            {/*t('vaccine:to')*/}
+            {t('vaccine:to')}
             </Label>
             <Col sm={10}>
                 <Input type="text" name="to" id="to" value={to} disabled />

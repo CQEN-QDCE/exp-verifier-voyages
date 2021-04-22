@@ -14,26 +14,20 @@ import                                           '../../assets/styles/LoginConta
 
 function QRVerificationContainer(props){
 
-	console.log("function QRVerificationContainer()")
-	console.log(props.location.state);
-	console.log("Cabin: " + props.location.state.ticket.cabin);
 	const { t } = useTranslation(['translation', 'vaccine']); 
-	let INTERVAL = 5000; 
-	let TIMEOUT  = 3000; 
+	const [showAuthButton, setAuthButton]  = useState(false);
+	const [showLoader, setLoader]          = useState(false);
 
-    const [showAuthButton, setAuthButton]  = useState(false);
-	const [showLoader, setLoader]          = useState(false)
-
-	//let cred_def_id = GET_CRED_DEF_ID();
-	let cred_def_id = "GECw2XkHi2hVXVafihZSyB:3:CL:124315:test";
-	console.log("GET_CRED_DEF_ID:" + GET_CRED_DEF_ID())
+	let INTERVAL    = 5000; 
+	let TIMEOUT     = 3000; 
+	let cred_def_id = GET_CRED_DEF_ID();
 
     useEffect(() => {
         getConnectionInfo()
     }, []);
 
     function getConnectionInfo() {
-		console.log("function getConnectionInfo()")
+	
 		try {
 			fetchWithTimeout(`/connections/${props.location.state.invitation.connection_id}`,
 				{
@@ -66,16 +60,12 @@ function QRVerificationContainer(props){
     }
     
     function clearIntervalFunction(intervalFunction) {
-		console.log("function clearIntervalFunction(intervalFunction)")
 		clearInterval(intervalFunction);
 		setAuthButton(true);
     }
     
 
     function requestProof(){
-		console.log("function requestProof()")
-		console.log("Connection ID : " + props.location.state.invitation.connection_id); 
-		console.log("CRED_DEF: " + cred_def_id); 
 		
 		fetch(`/present-proof/send-request`, 
 			{
@@ -213,7 +203,6 @@ function QRVerificationContainer(props){
 	}
 
 	const handleAuthorisation = () => {
-		console.log("const handleAuthorisation = ()")
 		setLoader(true);
 		requestProof(); 
     }

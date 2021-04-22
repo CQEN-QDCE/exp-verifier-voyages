@@ -10,8 +10,6 @@ function QRPreuveComponent(props) {
 
     const { t } = useTranslation(['translation','vaccine']);
 	const content = JSON.parse(props.value); 
-
-//    console.log(content.invitation.invitation_url)
 	
 	return (
         <div>
