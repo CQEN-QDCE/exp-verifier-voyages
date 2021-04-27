@@ -2,20 +2,19 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
-[Version Française](README_fr_CA.md)
+[English Version](README.md)
 
-# Air Secur Voyages verfier application 
+# Application de vérification Air Secur Voyages
 
+L'environnement d'expérimentation du CQEN est basé sur AWS & OpenShift (OKD).
 
-CQEN's experimentation environment is based on AWS & OpenShift (OKD).
+Pour reproduire l'expérimentation vous allez installer les composants suivants:
 
-To run this project, you should install the following components: 
-
-- a Blockchain; 
-- a block explorer (Ledger Client)
-- a database (kms - key management service)
-- a communication agent (Agent)
-- a controller website (controller)
+- une chaîne de bloc (Blockchain)
+- un explorateur de bloc (Ledger Client)
+- une base de donnée (kms - key management service)
+- un agent de communication (Agent)
+- un site web comme controlleur (controller)
 
 ---
 
