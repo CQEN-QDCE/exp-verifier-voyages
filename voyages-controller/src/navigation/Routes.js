@@ -15,6 +15,8 @@ import ProofVerificationContainer                 from '../VaccineProof/containe
 import BookTicketProofContainer                   from '../VaccineProof/containers/BookTicketProofContainer'
 import Auth from '../helpers/Auth'
 
+import LoginInformationContainer                  from '../containers/LoginInformationContainer'
+
 const PrivateRoute = ({ component, ...options }) => {
 	const finalComponent = Auth.getAuth() ? component : NoAuthContainer;
 	return <Route {...options} component={finalComponent} />;
@@ -27,16 +29,16 @@ function Routes() {
 				<Route component={HeaderComponent}/>
 				<Switch>
 					{ /* Routes de la preuve vaccinale */ } 
-					<Route path="/bookForm" component={BookTicketContainer} />
-					<Route path="/qrProof" component={QRVerificationContainer} />
-					<Route path="/proofResult" component={ProofVerificationContainer} />
-					<Route path="/bookProof" component={BookTicketProofContainer} />
-					<Route path="/proofDisplay" component={BookTicketProofContainer} />
+					<Route path="/bookForm" 		component={BookTicketContainer} />
+					<Route path="/qrProof" 			component={QRVerificationContainer} />
+					<Route path="/proofResult" 		component={ProofVerificationContainer} />
+					<Route path="/bookProof" 		component={BookTicketProofContainer} />
+					<Route path="/proofDisplay" 	component={BookTicketProofContainer} />
 
 					{ /* Routes de base de l'app */ }
-					<Route path="/noauth" component={NoAuthContainer} />
-					<Route path="/login"  component={LoginContainer} />
-					<Route path="/" exact component={MainContainer} />
+					<Route path="/noauth" 			component={NoAuthContainer} />
+					<Route path="/login"  			component={LoginContainer} />
+					<Route path="/" 				exact component={MainContainer} />
 
 				</Switch>
 				<FooterComponent />
