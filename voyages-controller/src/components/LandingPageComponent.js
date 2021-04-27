@@ -11,7 +11,7 @@ import bannerImg from '../assets/images/banner-img-1.png';
 import '../assets/styles/JumbotronComponent.css';
 import { useTranslation }  from 'react-i18next'
 
-const JumbotronComponent = () => {
+const LandingPageComponent = () => {
   const history = useHistory();
   const { t } = useTranslation(['translation','vaccine']);
 
@@ -25,18 +25,18 @@ const JumbotronComponent = () => {
             <p className="lead">
             {t('vaccine:travelCarefreeDescription')}</p>
             <Button className="mt-5" size="lg" color="primary" onClick={() => {
-              let auth_login = Auth.getAuth();
+              /*let auth_login = Auth.getAuth();
               if (auth_login == null) {
                 localStorage.setItem('demo', "PIA");
                 history.push('/bookForm')
               }
               else {
                 localStorage.setItem('demo', "PIA");
-                VaccinationStatus.isVaccinated(false)
+                VaccinationStatus.isVaccinated(false)*/
                 history.push('/bookForm')
-              }
+              //}
             }}>{t('vaccine:tryOnBookingButtonLabel')}</Button>
-
+            {/*
             <Button className="mt-5 ml-3" color="primary" size="lg" onClick={() => {
               let auth_login = Auth.getAuth();
               if (auth_login == null) {
@@ -47,7 +47,7 @@ const JumbotronComponent = () => {
                 localStorage.setItem('demo', "CAA");
                 history.push('/onlocation')
               }
-            }}>{t('vaccine:tryOnLocationButtonLabel')}</Button>
+            }}>{t('vaccine:tryOnLocationButtonLabel')}</Button> */}
           </div>
           <div class="col-md-4 col-sm-12">
             <img src={bannerImg} alt="CovidPerson" />
@@ -58,4 +58,4 @@ const JumbotronComponent = () => {
   );
 };
 
-export default JumbotronComponent;
+export default LandingPageComponent;
