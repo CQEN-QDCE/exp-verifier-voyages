@@ -6,7 +6,7 @@ import React                from 'react';
 import QRCode               from 'qrcode.react'
 import { useTranslation }   from 'react-i18next'
 
-function QRPreuveComponent(props) {
+function QRProofComponent(props) {
 
     const { t } = useTranslation(['translation','vaccine']);
 	const content = JSON.parse(props.value); 
@@ -21,4 +21,4 @@ function QRPreuveComponent(props) {
 	);
 }
 
-export default QRPreuveComponent;
+export default QRProofComponent;

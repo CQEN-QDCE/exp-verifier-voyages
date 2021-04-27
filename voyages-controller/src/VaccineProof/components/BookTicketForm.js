@@ -64,8 +64,8 @@ const BookTicketForm = () => {
                     ticket: {
                         from          : from, 
                         to            : to, 
-                        departureDate : departureDate, 
-                        returnDate    : returnDate, 
+                        departure     : departureDate, 
+                        return        : returnDate, 
                         passenger     : passenger, 
                         cabin         : cabin
                     },
