@@ -4,8 +4,7 @@
 ---
 [Version Française](README_fr_CA.md)
 
-# Air Secur Voyages verfier application 
-
+# Air Secur Voyages verifier application 
 
 CQEN's experimentation environment is based on AWS & OpenShift (OKD).
 
@@ -19,15 +18,15 @@ To run this project, you should install the following components:
 
 ---
 
-## Configurer le registre distribué
+## Configure the distributed ledger 
 
-Pour reproduire l'expérimentation, vous pouvez utiliser un registre distribué déjà installé comme le staging Net de [sovrin](https://sovrin.org) ou vous pouvez vous installer un [VON-Network](https://github.com/bcgov/von-network). C'est un réseau de noeuds Indy de niveau développement comprenant un explorateur de bloc (Ledger Client).
+To run the experimentations, you cans use a distributed ledger already deployed, as the [Sovrin's Staging Net](https://sovrin.org), or you can install your own [VON-Network](https://github.com/bcgov/von-network). It is an Indy development level network node, that includes a block explorer (Ledger Client). 
 
 ---
+## Configure the communication agent 
 
-## Configurer l'agent de communication
+### [Optional] Customizing Labels
 
-### [Optionel] Changement des libellés
 
 Si vous souhaitez changer le nom des organismes utilisés dans la démo, vous pouvez spécifier le paramètre "AGENT_NAME" lors du lancement des gabarits de déploiement. Les valeurs par défauts sont "Registre Québec" et "Curateur public du Québec".
 
