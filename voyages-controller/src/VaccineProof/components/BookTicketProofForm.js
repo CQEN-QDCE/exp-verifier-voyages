@@ -9,25 +9,25 @@ import { useTranslation } from 'react-i18next'
 
 function BookTicketProofForm(props) {
 
-    const [vaccine_medicinalProductName, setvaccine_medicinalProductName] = useState(props.data.vaccine_medicinalProductName)
-    const [countryOfVaccination, setCountryOfVaccination] = useState(props.data.countryOfVaccination); 
-    const [recipient_birthDate, setrecipient_birthDate] = useState(props.data.recipient_birthDate);
-    const [credential_type, setcredential_type] = useState(props.data.credential_type); 
-    const [expirationDate, setExpirationDate] = useState(props.data.expirationDate); 
-    const [recipient_fullName, setrecipient_fullName] = useState(props.data.recipient_fullName); 
-    const [vaccine_type, setvaccine_type] = useState(props.data.vaccine_type); 
-    const [recipient_type, setrecipient_type] = useState(props.data.recipient_type); 
-    const [description, setDescription] = useState(props.data.description); 
-    const [vaccine_marketingAuthorizationHolder, setvaccine_marketingAuthorizationHolder] = useState(props.data.vaccine_marketingAuthorizationHolder); 
-    const [vaccine_dateOfVaccination, setvaccine_dateOfVaccination] = useState(props.data.vaccine_dateOfVaccination); 
-    const [vaccine_disease, setvaccine_disease] = useState(props.data.vaccine_disease); 
+    const [vaccine_medicinalProductName, setvaccine_medicinalProductName] = useState(props.data.vaccine.vaccine_medicinalProductName)
+    const [countryOfVaccination, setCountryOfVaccination] = useState(props.data.vaccine.countryOfVaccination); 
+    const [recipient_birthDate, setrecipient_birthDate] = useState(props.data.vaccine.recipient_birthDate);
+    const [credential_type, setcredential_type] = useState(props.data.vaccine.credential_type); 
+    const [expirationDate, setExpirationDate] = useState(props.data.vaccine.expirationDate); 
+    const [recipient_fullName, setrecipient_fullName] = useState(props.data.vaccine.recipient_fullName); 
+    const [vaccine_type, setvaccine_type] = useState(props.data.vaccine.vaccine_type); 
+    const [recipient_type, setrecipient_type] = useState(props.data.vaccine.recipient_type); 
+    const [description, setDescription] = useState(props.data.vaccine.description); 
+    const [vaccine_marketingAuthorizationHolder, setvaccine_marketingAuthorizationHolder] = useState(props.data.vaccine.vaccine_marketingAuthorizationHolder); 
+    const [vaccine_dateOfVaccination, setvaccine_dateOfVaccination] = useState(props.data.vaccine.vaccine_dateOfVaccination); 
+    const [vaccine_disease, setvaccine_disease] = useState(props.data.vaccine.vaccine_disease); 
 
-    const [from, setFrom] = useState(props.data.ticketFrom); 
-    const [to, setTo] = useState(props.data.ticketTo); 
-    const [departureDate, setDepartureDate] = useState(props.data.ticketDeparture); 
-    const [returnDate, setReturnDate] = useState(props.data.ticketReturn); 
-    const [passenger, setPassenger] = useState([props.data.ticketPassenger]); 
-    const [cabin, setCabin] = useState(props.data.ticketCabin); 
+    const [from, setFrom] = useState(props.data.ticket.from); 
+    const [to, setTo] = useState(props.data.ticket.to); 
+    const [departureDate, setDepartureDate] = useState(props.data.ticket.departure); 
+    const [returnDate, setReturnDate] = useState(props.data.ticket.return); 
+    const [passenger, setPassenger] = useState([props.data.ticket.passenger]); 
+    const [cabin, setCabin] = useState(props.data.ticket.cabin); 
 
     const { t } = useTranslation(['translation','vaccine']); 
     

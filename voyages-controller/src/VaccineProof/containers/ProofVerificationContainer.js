@@ -74,25 +74,22 @@ function ProofVerificationContainer(props) {
          .then(data => {
 
             props.history.push('/proofDisplay', {
-                connection_id                           : props.location.state.connection_id,
-                ticketFrom                              : props.location.state.ticketFrom, 
-				ticketTo                                : props.location.state.ticketTo,
-				ticketDeparture	                		: props.location.state.ticketDeparture,
-				ticketReturn	                		: props.location.state.ticketReturn,
-				ticketPassenger		                	: props.location.state.ticketPassenger,
-				ticketCabin			                	: props.location.state.ticketCabin,
-                vaccine_medicinalProductName            : data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName.raw,
-                countryOfVaccination                    : data.presentation.requested_proof.revealed_attrs.countryOfVaccination.raw,
-                recipient_birthDate                     : data.presentation.requested_proof.revealed_attrs.recipient_birthDate.raw,
-                credential_type                         : data.presentation.requested_proof.revealed_attrs.credential_type.raw,
-                expirationDate                          : data.presentation.requested_proof.revealed_attrs.expirationDate.raw,
-                recipient_fullName                      : data.presentation.requested_proof.revealed_attrs.recipient_fullName.raw,
-                vaccine_type                            : data.presentation.requested_proof.revealed_attrs.vaccine_type.raw,
-                recipient_type                          : data.presentation.requested_proof.revealed_attrs.recipient_type.raw,
-                description                             : data.presentation.requested_proof.revealed_attrs.description.raw,
-                vaccine_marketingAuthorizationHolder    : data.presentation.requested_proof.revealed_attrs.vaccine_marketingAuthorizationHolder.raw,
-                vaccine_dateOfVaccination               : data.presentation.requested_proof.revealed_attrs.vaccine_dateOfVaccination.raw,
-                vaccine_disease                         : data.presentation.requested_proof.revealed_attrs.vaccine_disease.raw,
+                connection_id                               : props.location.state.connection_id,
+                ticket                                      : props.location.state.ticket,
+                vaccine: {
+                    vaccine_medicinalProductName            : data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName.raw,
+                    countryOfVaccination                    : data.presentation.requested_proof.revealed_attrs.countryOfVaccination.raw,
+                    recipient_birthDate                     : data.presentation.requested_proof.revealed_attrs.recipient_birthDate.raw,
+                    credential_type                         : data.presentation.requested_proof.revealed_attrs.credential_type.raw,
+                    expirationDate                          : data.presentation.requested_proof.revealed_attrs.expirationDate.raw,
+                    recipient_fullName                      : data.presentation.requested_proof.revealed_attrs.recipient_fullName.raw,
+                    vaccine_type                            : data.presentation.requested_proof.revealed_attrs.vaccine_type.raw,
+                    recipient_type                          : data.presentation.requested_proof.revealed_attrs.recipient_type.raw,
+                    description                             : data.presentation.requested_proof.revealed_attrs.description.raw,
+                    vaccine_marketingAuthorizationHolder    : data.presentation.requested_proof.revealed_attrs.vaccine_marketingAuthorizationHolder.raw,
+                    vaccine_dateOfVaccination               : data.presentation.requested_proof.revealed_attrs.vaccine_dateOfVaccination.raw,
+                    vaccine_disease                         : data.presentation.requested_proof.revealed_attrs.vaccine_disease.raw,
+                }
             })
         });
     }

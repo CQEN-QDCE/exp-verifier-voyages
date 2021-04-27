@@ -5,7 +5,7 @@
 import React, { useState, useEffect }       from 'react'
 import { Container, Button, Col, Spinner }  from 'reactstrap'
 import { useTranslation } 					from 'react-i18next' 
-import QRPreuveComponent                    from '../components/QRPreuveComponent'
+import QRProofComponent                    from '../components/QRProofComponent'
 import { GET_API_SECRET }                   from '../../config/constants'
 import { GET_CRED_DEF_ID } 					from '../../config/constants'
 import { fetchWithTimeout }                 from '../../helpers/fetchWithTimeout'
@@ -191,12 +191,7 @@ function QRVerificationContainer(props){
 						props.history.push('/proofResult', {
 							presentation_exchange_id: data.presentation_exchange_id,
 							connection_id           : props.location.state.invitation.connection_id,
-							ticketFrom              : props.location.state.ticket.from, 
-							ticketTo                : props.location.state.ticket.to,
-							ticketDeparture			: props.location.state.ticket.departureDate,
-							ticketReturn			: props.location.state.ticket.returnDate,
-							ticketPassenger			: props.location.state.ticket.passenger,
-							ticketCabin				: props.location.state.ticket.cabin
+							ticket					: props.location.state.ticket,
 						}
                     );
 				});
@@ -211,7 +206,7 @@ function QRVerificationContainer(props){
         <div className="Root" style={{ backgroundColor: '#FCF8F7', display: "flex" }}>
 			<Container >
 				<Col>
-					<QRPreuveComponent value={JSON.stringify(props.location.state)} />
+					<QRProofComponent value={JSON.stringify(props.location.state)} />
 				</Col>
 				<Col className="mt-3">
 					{showAuthButton && !showLoader ?
