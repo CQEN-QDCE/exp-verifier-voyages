@@ -15,8 +15,6 @@ import ProofVerificationContainer                 from '../VaccineProof/containe
 import BookTicketProofContainer                   from '../VaccineProof/containers/BookTicketProofContainer'
 import Auth from '../helpers/Auth'
 
-import LoginInformationContainer                  from '../containers/LoginInformationContainer'
-
 const PrivateRoute = ({ component, ...options }) => {
 	const finalComponent = Auth.getAuth() ? component : NoAuthContainer;
 	return <Route {...options} component={finalComponent} />;
