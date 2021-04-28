@@ -28,7 +28,7 @@ Pour reproduire l'expérimentation, vous pouvez utiliser un registre distribué 
 
 ### [Optionel] Changement des libellés
 
-Si vous souhaitez changer le nom des organismes utilisés dans la démo, vous pouvez spécifier le paramètre "AGENT_NAME" lors du lancement des gabarits de déploiement. Les valeurs par défauts sont "Registre Québec" et "Curateur public du Québec".
+Si vous souhaitez changer le nom des organismes utilisés dans la démo, vous pouvez spécifier le paramètre "AGENT_NAME" lors du lancement des gabarits de déploiement. 
 
 ### Créer un DID public sur votre chaîne de bloc
 
