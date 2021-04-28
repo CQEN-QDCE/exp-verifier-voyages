@@ -5,7 +5,7 @@
 import React, { useState, useEffect }       from 'react'
 import { Container, Button, Col, Spinner }  from 'reactstrap'
 import { useTranslation } 					from 'react-i18next' 
-import QRProofComponent                    from '../components/QRProofComponent'
+import QRProofComponent                     from '../components/QRProofComponent'
 import { GET_API_SECRET }                   from '../../config/constants'
 import { GET_CRED_DEF_ID } 					from '../../config/constants'
 import { fetchWithTimeout }                 from '../../helpers/fetchWithTimeout'

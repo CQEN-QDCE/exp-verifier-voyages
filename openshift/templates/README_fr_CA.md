@@ -1,5 +1,5 @@
-[![img](https://img.shields.io/badge/Lifecycle-Experimental-339999)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![img](https://img.shields.io/badge/Cycle%20de%20Vie-Phase%20d%C3%A9couverte-339999)](https://www.quebec.ca/gouv/politiques-orientations/vitrine-numeriqc/accompagnement-des-organismes-publics/demarche-conception-services-numeriques)
+[![License](https://img.shields.io/badge/Licence-LiLiQ--R-blue)](/LICENSE)
 
 ---
 [English Version](README.md)
@@ -28,7 +28,7 @@ Pour reproduire l'expérimentation, vous pouvez utiliser un registre distribué 
 
 ### [Optionel] Changement des libellés
 
-Si vous souhaitez changer le nom des organismes utilisés dans la démo, vous pouvez spécifier le paramètre "AGENT_NAME" lors du lancement des gabarits de déploiement. Les valeurs par défauts sont "Registre Québec" et "Curateur public du Québec".
+Si vous souhaitez changer le nom des organismes utilisés dans la démo, vous pouvez spécifier le paramètre "AGENT_NAME" lors du lancement des gabarits de déploiement. 
 
 ### Créer un DID public sur votre chaîne de bloc
 
