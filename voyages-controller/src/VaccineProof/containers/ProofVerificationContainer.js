@@ -41,7 +41,6 @@ function ProofVerificationContainer(props) {
 									let intervalFunction;
 									data.state === "request_sent" ? intervalFunction = setTimeout(getConnectionInfo, INTERVAL) : VerifyPresentation(presentation_exchange_id);
 								} else {
-									console.log('En attent de réponse!');
 									setTimeout(getConnectionInfo, INTERVAL)
 								}
 							}))
