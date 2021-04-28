@@ -5,7 +5,6 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const PORT = process.env.PORT || 10000;
 const HOST_URL = process.env.REACT_APP_ISSUER_HOST_URL || 'http://bcovrintest-agent-admin.apps.exp.lab.pocquebec.org';
 
-console.log("Application started on port " + PORT);
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(

@@ -44,7 +44,6 @@ function QRVerificationContainer(props){
 									let intervalFunction;
 									data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, INTERVAL) : clearIntervalFunction(intervalFunction);
 								} else {
-									console.log('En attent de réponse!');
 									setTimeout(getConnectionInfo, INTERVAL)
 								}
 							}))
