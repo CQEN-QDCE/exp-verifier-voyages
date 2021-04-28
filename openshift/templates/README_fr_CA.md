@@ -2,31 +2,31 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
-[Version Française](README_fr_CA.md)
+[English Version](README.md)
 
-# Air Secur Voyages verifier application 
+# Application de vérification Air Secur Voyages
 
-CQEN's experimentation environment is based on AWS & OpenShift (OKD).
+L'environnement d'expérimentation du CQEN est basé sur AWS & OpenShift (OKD).
 
-To run this project, you should install the following components: 
+Pour reproduire l'expérimentation vous allez installer les composants suivants:
 
-- a Blockchain; 
-- a block explorer (Ledger Client)
-- a database (kms - key management service)
-- a communication agent (Agent)
-- a controller website (controller)
+- une chaîne de bloc (Blockchain)
+- un explorateur de bloc (Ledger Client)
+- une base de donnée (kms - key management service)
+- un agent de communication (Agent)
+- un site web comme controlleur (controller)
+
+---
+
+## Configurer le registre distribué
+
+Pour reproduire l'expérimentation, vous pouvez utiliser un registre distribué déjà installé comme le staging Net de [sovrin](https://sovrin.org) ou vous pouvez vous installer un [VON-Network](https://github.com/bcgov/von-network). C'est un réseau de noeuds Indy de niveau développement comprenant un explorateur de bloc (Ledger Client).
 
 ---
 
-## Configure the distributed ledger 
+## Configurer l'agent de communication
 
-To run the experimentations, you can use a distributed ledger already deployed, as the [Sovrin's Staging Net](https://sovrin.org), or you can install your own [VON-Network](https://github.com/bcgov/von-network) - it is an Indy development level network node, that includes a block explorer (Ledger Client). 
-
----
-## Configure the communication agent 
-
-### [Optional] Customizing Labels
-
+### [Optionel] Changement des libellés
 
 Si vous souhaitez changer le nom des organismes utilisés dans la démo, vous pouvez spécifier le paramètre "AGENT_NAME" lors du lancement des gabarits de déploiement. Les valeurs par défauts sont "Registre Québec" et "Curateur public du Québec".
 
