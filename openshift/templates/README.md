@@ -20,7 +20,7 @@ To run this project, you should install the following components:
 
 ## Configure the distributed ledger 
 
-To run the experimentations, you cans use a distributed ledger already deployed, as the [Sovrin's Staging Net](https://sovrin.org), or you can install your own [VON-Network](https://github.com/bcgov/von-network). It is an Indy development level network node, that includes a block explorer (Ledger Client). 
+To run the experimentations, you can use a distributed ledger already deployed, as the [Sovrin's Staging Net](https://sovrin.org), or you can install your own [VON-Network](https://github.com/bcgov/von-network) - it is an Indy development level network node, that includes a block explorer (Ledger Client). 
 
 ---
 ## Configure the communication agent 
