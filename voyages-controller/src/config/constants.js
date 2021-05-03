@@ -20,6 +20,22 @@ export function GET_SCHEMA_ID() {
         return SCHEMA_ID
 }
 
+export function GET_SCHEMA_NAME() {
+    let SCHEMA_NAME = process.env.REACT_APP_SCHEMA_NAME;
+    if (SCHEMA_NAME === undefined || SCHEMA_NAME === '')
+        return 'NONE'
+    else
+        return SCHEMA_NAME
+}
+
+export function GET_SCHEMA_VERSION() {
+    let SCHEMA_VERSION = process.env.REACT_APP_SCHEMA_VERSION;
+    if (SCHEMA_VERSION === undefined || SCHEMA_VERSION === '')
+        return 'NONE'
+    else
+        return SCHEMA_VERSION
+}
+
 export function GET_CRED_DEF_ID() {
     let CRED_ID = process.env.REACT_APP_CRED_DEF_VACCINE;
     if (CRED_ID === undefined || CRED_ID === '')

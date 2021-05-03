@@ -7,8 +7,9 @@ import { Container, Button, Col, Spinner }  from 'reactstrap'
 import { useTranslation } 					from 'react-i18next' 
 import QRProofComponent                     from '../components/QRProofComponent'
 import { GET_API_SECRET }                   from '../../config/constants'
-import { GET_CRED_DEF_ID } 					from '../../config/constants'
 import { fetchWithTimeout }                 from '../../helpers/fetchWithTimeout'
+import { GET_SCHEMA_NAME }                  from '../../config/constants'
+import { GET_SCHEMA_VERSION }               from '../../config/constants'
 import                                           '../../assets/styles/LoginContainer.css'
 
 
@@ -20,7 +21,8 @@ function QRVerificationContainer(props){
 
 	let INTERVAL    = 5000; 
 	let TIMEOUT     = 3000; 
-	let cred_def_id = GET_CRED_DEF_ID();
+	let schemaName = GET_SCHEMA_NAME();  
+	let version = GET_SCHEMA_VERSION(); 
 
     useEffect(() => {
         getConnectionInfo()
@@ -65,7 +67,6 @@ function QRVerificationContainer(props){
     
 
     function requestProof(){
-		
 		fetch(`/present-proof/send-request`, 
 			{
 				method : 'POST', 
@@ -86,33 +87,29 @@ function QRVerificationContainer(props){
 							"description": {
 								"name": "description",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"expirationDate": {
 								"name": "expirationDate",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"countryOfVaccination": {
 								"name": "countryOfVaccination",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"credential_type": {
 								"name": "credential_type",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							
@@ -120,71 +117,63 @@ function QRVerificationContainer(props){
 							"recipient_birthDate": {
 								"name": "recipient_birthDate",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"recipient_fullName": {
 								"name": "recipient_fullName",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"recipient_type": {
 								"name": "recipient_type",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							}, 
 							"vaccine_dateOfVaccination": {
 								"name": "vaccine_dateOfVaccination",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							}, 
 							"vaccine_disease": {
 								"name": "vaccine_disease",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"vaccine_type": {
 								"name": "vaccine_type",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
                             }, 
                             "vaccine_medicinalProductName": {
 								"name": "vaccine_medicinalProductName",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							},
 							"vaccine_marketingAuthorizationHolder": {
 								"name": "vaccine_marketingAuthorizationHolder",
 								"restrictions": [
-									{
-									"cred_def_id": cred_def_id
-									}
+									{"schema_name": schemaName,
+                        			"schema_version": version}
 								]
 							}
 						}, 
 						"requested_predicates" : {}
 					}
-				}	
+				}
 				)}).then(response => response.json())
 					.then(data => {
 						props.history.push('/proofResult', {
