@@ -74,7 +74,6 @@ function ProofVerificationContainer(props) {
 
             props.history.push('/proofDisplay', {
                 connection_id                               : props.location.state.connection_id,
-                ticket                                      : props.location.state.ticket,
                 vaccine: {
                     vaccine_medicinalProductName            : data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName.raw,
                     countryOfVaccination                    : data.presentation.requested_proof.revealed_attrs.countryOfVaccination.raw,
