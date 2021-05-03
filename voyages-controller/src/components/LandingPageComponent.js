@@ -15,6 +15,30 @@ const LandingPageComponent = () => {
   const history = useHistory();
   const { t } = useTranslation(['translation','vaccine']);
 
+  function createInvitation(){
+    fetch('/connections/create-invitation',{
+        method: 'POST',
+        headers: {
+            'Content-Type'                 : 'application/json; charset=utf-8',
+            'Access-Control-Allow-Origin'  : '*', 
+            'Access-Control-Allow-Methods' : 'GET, POST, PUT, PATCH, POST, DELETE, OPTIONS', 
+            'Access-Control-Allow-Headers' : 'Content-Type', 
+            'Access-Control-Max-Age'       : '86400'
+        }
+        }).then((
+        resp => resp.json().then((
+            data => 
+            history.push('/qrproof',
+                {
+                type: "did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/connections/1.0/invitation", 
+                invitation    : data
+                } 
+            )
+        ))
+    ))
+  }
+
+  
   return (
     <header>
       <div className="pt-5 container-fluid text-center" >
@@ -24,30 +48,11 @@ const LandingPageComponent = () => {
             <p>{t('vaccine:travelCarefreeSubTitle')}</p>
             <p className="lead">
             {t('vaccine:travelCarefreeDescription')}</p>
+            
             <Button className="mt-5" size="lg" color="primary" onClick={() => {
-              /*let auth_login = Auth.getAuth();
-              if (auth_login == null) {
-                localStorage.setItem('demo', "PIA");
-                history.push('/bookForm')
-              }
-              else {
-                localStorage.setItem('demo', "PIA");
-                VaccinationStatus.isVaccinated(false)*/
-                history.push('/bookForm')
-              //}
+                createInvitation();
             }}>{t('vaccine:tryOnBookingButtonLabel')}</Button>
-            {/*
-            <Button className="mt-5 ml-3" color="primary" size="lg" onClick={() => {
-              let auth_login = Auth.getAuth();
-              if (auth_login == null) {
-                localStorage.setItem('demo', "CAA");
-                history.push('/login')
-              }
-              else {
-                localStorage.setItem('demo', "CAA");
-                history.push('/onlocation')
-              }
-            }}>{t('vaccine:tryOnLocationButtonLabel')}</Button> */}
+            
           </div>
           <div class="col-md-4 col-sm-12">
             <img src={bannerImg} alt="CovidPerson" />
