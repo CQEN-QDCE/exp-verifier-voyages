@@ -16,8 +16,6 @@ import                                           '../../assets/styles/LoginConta
 function QRVerificationContainer(props){
 
 	const { t } = useTranslation(['translation', 'vaccine']); 
-	const [showAuthButton, setAuthButton]  = useState(false);
-	const [showLoader, setLoader]          = useState(false);
 
 	let INTERVAL    = 5000; 
 	let TIMEOUT     = 3000; 
@@ -29,7 +27,7 @@ function QRVerificationContainer(props){
     }, []);
 
     function getConnectionInfo() {
-	
+		
 		try {
 			fetchWithTimeout(`/connections/${props.location.state.invitation.connection_id}`,
 				{
@@ -62,7 +60,7 @@ function QRVerificationContainer(props){
     
     function clearIntervalFunction(intervalFunction) {
 		clearInterval(intervalFunction);
-		setAuthButton(true);
+		requestProof()
     }
     
 
@@ -179,26 +177,16 @@ function QRVerificationContainer(props){
 						props.history.push('/proofResult', {
 							presentation_exchange_id: data.presentation_exchange_id,
 							connection_id           : props.location.state.invitation.connection_id,
-							ticket					: props.location.state.ticket,
 						}
                     );
 				});
 	}
-
-	const handleAuthorisation = () => {
-		setLoader(true);
-		requestProof(); 
-    }
     
     return(
         <div className="Root" style={{ backgroundColor: '#FCF8F7', display: "flex" }}>
 			<Container >
 				<Col>
 					<QRProofComponent value={JSON.stringify(props.location.state)} />
-				</Col>
-				<Col className="mt-3">
-					{showAuthButton && !showLoader ?
-						<Button outline color="primary" onClick={handleAuthorisation}>{t('vaccine:btnVaccineQR')}</Button> : showLoader ? <Spinner /> : null}
 				</Col>
 			</Container>
 		</div> 
