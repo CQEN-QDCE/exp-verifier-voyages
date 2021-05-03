@@ -9,16 +9,9 @@ import FooterComponent                            from '../components/FooterComp
 import MainContainer                              from '../containers/MainContainer'
 import LoginContainer                             from '../containers/LoginContainer'
 import NoAuthContainer                            from '../containers/NoAuthContainer'
-import BookTicketContainer						  from '../VaccineProof/containers/BookTicketContainer'
 import QRVerificationContainer 					  from '../VaccineProof/containers/QRVerificationContainer'
 import ProofVerificationContainer                 from '../VaccineProof/containers/ProofVerificationContainer'
 import BookTicketProofContainer                   from '../VaccineProof/containers/BookTicketProofContainer'
-import Auth from '../helpers/Auth'
-
-const PrivateRoute = ({ component, ...options }) => {
-	const finalComponent = Auth.getAuth() ? component : NoAuthContainer;
-	return <Route {...options} component={finalComponent} />;
-  };
 
 function Routes() {
 	return (
@@ -27,10 +20,8 @@ function Routes() {
 				<Route component={HeaderComponent}/>
 				<Switch>
 					{ /* Routes de la preuve vaccinale */ } 
-					<Route path="/bookForm" 		component={BookTicketContainer} />
 					<Route path="/qrProof" 			component={QRVerificationContainer} />
 					<Route path="/proofResult" 		component={ProofVerificationContainer} />
-					<Route path="/bookProof" 		component={BookTicketProofContainer} />
 					<Route path="/proofDisplay" 	component={BookTicketProofContainer} />
 
 					{ /* Routes de base de l'app */ }
