@@ -45,7 +45,7 @@ const BookTicketForm = () => {
     }
 
     function createInvitation(){
-        fetch('/connections/create-invitation',{
+        fetch('/create-connectionless-proof-request',{
             method: 'POST',
             headers: {
                 'X-API-Key'                    : `${GET_API_SECRET()}`, 
