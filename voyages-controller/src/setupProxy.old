@@ -7,7 +7,7 @@ const NodeCache = require('node-cache');
 const memoryStore = new NodeCache();
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const PORT = process.env.PORT || 3000;
-const HOST_URL = process.env.REACT_APP_ISSUER_HOST_URL || 'http://bcovrintest-agent-admin.apps.exp.lab.pocquebec.org';
+const HOST_URL = process.env.REACT_APP_ISSUER_HOST_URL || 'http://bcovrintest-agent-admin-martin2.apps.exp.lab.pocquebec.org';
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 console.log("Application started on port " + PORT);
 
@@ -22,20 +22,23 @@ module.exports = function(app) {
         let config = { headers: { 'X-API-KEY': 'cqen-api-test' } };
      
         let createInvitationResponse = await axios.post( HOST_URL + '/connections/create-invitation', {}, config );
-     
+    
         let routingKeys = createInvitationResponse.data.invitation.routingKeys;
 
         let recipientKeys = createInvitationResponse.data.invitation.recipientKeys;
 
         let serviceEndpoint = createInvitationResponse.data.invitation.serviceEndpoint;
-     
+
+        serviceEndpoint = 'http://bcovrintest-agent-martin2.apps.exp.lab.pocquebec.org';
+
         let createRequestResponse = await axios.post(HOST_URL + '/present-proof/create-request', {
             "version": "1.0",
-            "trace" : "false", 
+            "trace" : "false",
             "comment" : "Vaccination proof validation", 
             "proof_request" : {
                 "name"    : "vaccine", 
                 "version" : "1.2", 
+                "nonce": "1234567890",
                 "requested_attributes" : {
                     "description": {
                         "name": "description",
@@ -118,7 +121,7 @@ module.exports = function(app) {
             connectionlessProof.routingKeys = routingKeys;
             connectionlessProof.serviceEndpoint = serviceEndpoint;
             connectionlessProof.requestPresentationsAttach = createRequestResponse.data.presentation_request_dict['request_presentations~attach'];
-            connectionlessProof.qrcodeData = "http://1863b11941cf.ngrok.io/url/" + sessionId;
+            connectionlessProof.qrcodeData = "http://0ab6e43b42e9.ngrok.io/url/" + sessionId;
             connectionlessProof.presentation_exchange_id = createRequestResponse.data.presentation_exchange_id;
             connectionlessProof.thread_id = createRequestResponse.data.thread_id;
 
@@ -149,7 +152,7 @@ app.get('/url/:sessionId', async (req, res, next) => {
         }
     };
     
-    let response = 'http://1863b11941cf.ngrok.io/link/?d_m=' + Buffer.from(JSON.stringify(dmQueryParameter)).toString('base64');
+    let response = 'http://0ab6e43b42e9.ngrok.io/link/?d_m=' + Buffer.from(JSON.stringify(dmQueryParameter)).toString('base64');
     
     console.log('redirect: '+ response);
 

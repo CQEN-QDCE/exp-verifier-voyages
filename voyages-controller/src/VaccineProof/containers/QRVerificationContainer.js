@@ -45,7 +45,28 @@ function QRVerificationContainer(props){
 							resp.json().then((data => {
 								if (data.state) {
 									let intervalFunction;
-									data.state === "request_sent" ? intervalFunction = setTimeout(getConnectionInfo2, INTERVAL) : VerifyPresentation(presentation_exchange_id);
+									if (data.state === "request_sent") {
+										intervalFunction = setTimeout(getConnectionInfo2, INTERVAL);
+									} else {
+										props.history.push('/proofDisplay', {
+											connection_id                               : props.location.state.connection_id,
+											ticket                                      : props.location.state.ticket,
+											vaccine: {
+												vaccine_medicinalProductName            : data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName.raw,
+												countryOfVaccination                    : data.presentation.requested_proof.revealed_attrs.countryOfVaccination.raw,
+												recipient_birthDate                     : data.presentation.requested_proof.revealed_attrs.recipient_birthDate.raw,
+												credential_type                         : data.presentation.requested_proof.revealed_attrs.credential_type.raw,
+												expirationDate                          : data.presentation.requested_proof.revealed_attrs.expirationDate.raw,
+												recipient_fullName                      : data.presentation.requested_proof.revealed_attrs.recipient_fullName.raw,
+												vaccine_type                            : data.presentation.requested_proof.revealed_attrs.vaccine_type.raw,
+												recipient_type                          : data.presentation.requested_proof.revealed_attrs.recipient_type.raw,
+												description                             : data.presentation.requested_proof.revealed_attrs.description.raw,
+												vaccine_marketingAuthorizationHolder    : data.presentation.requested_proof.revealed_attrs.vaccine_marketingAuthorizationHolder.raw,
+												vaccine_dateOfVaccination               : data.presentation.requested_proof.revealed_attrs.vaccine_dateOfVaccination.raw,
+												vaccine_disease                         : data.presentation.requested_proof.revealed_attrs.vaccine_disease.raw,
+											}
+										});
+									}
 								} else {
 									setTimeout(getConnectionInfo2, INTERVAL)
 								}
@@ -60,82 +81,6 @@ function QRVerificationContainer(props){
 			setTimeout(getConnectionInfo2, INTERVAL)
 		}
 	}
-
-    const VerifyPresentation = (presentation_exchange_id) => {
-        fetch('/present-proof/records/' + presentation_exchange_id + '/verify-presentation', 
-			{
-				method : 'POST', 
-				headers: {
-                    'X-API-Key'                         : `${GET_API_SECRET()}`,
-					'Content-Type'                      : 'application/json; charset=utf-8',
-					'Access-Control-Allow-Origin'       : '*', 
-					'Access-Control-Allow-Methods'      : '*',
-					'Access-Control-Allow-Headers'      : '*', 
-					'Access-Control-Allow-Credentials'  : 'true'
-				},
-				body:{}
-			}
-		).then(response => response.json())
-         .then(data => {
-
-            props.history.push('/proofDisplay', {
-                connection_id                               : props.location.state.connection_id,
-                ticket                                      : props.location.state.ticket,
-                vaccine: {
-                    vaccine_medicinalProductName            : data.presentation.requested_proof.revealed_attrs.vaccine_medicinalProductName.raw,
-                    countryOfVaccination                    : data.presentation.requested_proof.revealed_attrs.countryOfVaccination.raw,
-                    recipient_birthDate                     : data.presentation.requested_proof.revealed_attrs.recipient_birthDate.raw,
-                    credential_type                         : data.presentation.requested_proof.revealed_attrs.credential_type.raw,
-                    expirationDate                          : data.presentation.requested_proof.revealed_attrs.expirationDate.raw,
-                    recipient_fullName                      : data.presentation.requested_proof.revealed_attrs.recipient_fullName.raw,
-                    vaccine_type                            : data.presentation.requested_proof.revealed_attrs.vaccine_type.raw,
-                    recipient_type                          : data.presentation.requested_proof.revealed_attrs.recipient_type.raw,
-                    description                             : data.presentation.requested_proof.revealed_attrs.description.raw,
-                    vaccine_marketingAuthorizationHolder    : data.presentation.requested_proof.revealed_attrs.vaccine_marketingAuthorizationHolder.raw,
-                    vaccine_dateOfVaccination               : data.presentation.requested_proof.revealed_attrs.vaccine_dateOfVaccination.raw,
-                    vaccine_disease                         : data.presentation.requested_proof.revealed_attrs.vaccine_disease.raw,
-                }
-            })
-        });
-	}
-	
-    function getConnectionInfo() {
-	
-		try {
-			fetchWithTimeout(`/connections/${props.location.state.invitation.connection_id}`,
-				{
-					method : 'GET',
-					headers: {
-						'X-API-Key'    : `${GET_API_SECRET()}`,
-						'Content-Type' : 'application/json; charset=utf-8',
-					}
-				}, TIMEOUT).then((
-					resp => {
-						try {
-							resp.json().then((data => {
-								if (data.state) {
-									let intervalFunction;
-									data.state === "invitation" ? intervalFunction = setTimeout(getConnectionInfo, INTERVAL) : clearIntervalFunction(intervalFunction);
-								} else {
-									setTimeout(getConnectionInfo, INTERVAL)
-								}
-							}))
-						} catch (error) {
-							setTimeout(getConnectionInfo, INTERVAL)
-						}
-					}
-				))
-		} catch (error) {
-			console.log(error);
-			setTimeout(getConnectionInfo, INTERVAL)
-		}
-    }
-    
-    function clearIntervalFunction(intervalFunction) {
-		clearInterval(intervalFunction);
-		setAuthButton(true);
-    }
-    
 
     function requestProof(){
 		fetch(`/present-proof/send-request`, 

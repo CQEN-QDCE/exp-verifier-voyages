@@ -7,7 +7,7 @@
 export function GET_API_SECRET() {
     let API_SECRET = process.env.REACT_APP_API_SECRET;
     if (API_SECRET === undefined || API_SECRET === '')
-        return 'secret'
+        return 'cqen-api-test'
     else
         return API_SECRET
 }
